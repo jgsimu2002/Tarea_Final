@@ -6,8 +6,8 @@
        
     </head>
     <body>
-        
-        <h1>gestion de clientes</h1>
+        <header th:replace="plantilla/plantilla :: header" />
+        <h2>gestion de clientes</h2>
         <a th:href="@{/nuevo cliente}">Nuevo cliente</a>
         <div th:if="{clientes != null and !clientes.empty}">
         <table border="1">
@@ -37,11 +37,12 @@
                 </tr>
             </tbody>
         </table>
+            
 </div>
+        <div th:if="${clientes == null or cliente empty}">
+        </div>
+  
+         <footer th:replace="plantilla/plantilla :: footer" />
         
-        <p Nombre: <span th:text="${cliente.nombre}"/>que tal</p>
-        <p Nombre: <span th:text="${cliente.napellido}"/>que tal</p>
-        <p Nombre: <span th:text="${cliente.ncorreo}"/>que tal</p>
-        <p Nombre: <span th:text="${cliente.telefono}"/>que tal</p>
     </body>
 </html>
