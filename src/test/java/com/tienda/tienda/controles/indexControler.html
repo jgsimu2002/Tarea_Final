@@ -1,0 +1,67 @@
+
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Bienvenidos</h1>
+        <div th:if="${clientes !=null and !clientes.empty}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.nombre}"></td>
+                     <td th:text="${cliente.apellidos}"></td>
+                      <td th:text="${cliente.nocorreo}"></td>
+                       <td th:text="${cliente.telefono}"></td>
+                       <td th:href="@{/modificarCliente/} + ${cliente.idCliente}">Modificaer</td>
+                
+                </tr>
+            </tbody>
+            
+            
+            
+            
+        </table>
+            </div>
+        
+        <div th:if="${clientes !=null or !clientes.empty}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr th:each="cliente : ${clientes}">
+                    <td th:text="${cliente.nombre}"></td>
+                     <td th:text="${cliente.apellidos}"></td>
+                      <td th:text="${cliente.nocorreo}"></td>
+                       <td th:text="${cliente.telefono}"></td>
+                
+                </tr>
+            </tbody>
+            
+            
+            
+            
+        </table>
+            </div>
+    </body>
+</html>

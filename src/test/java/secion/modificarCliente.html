@@ -1,0 +1,35 @@
+
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns="https://www.w3.org/1999/xhtml">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Datos Clientes</h1>
+        <a th:href="@{/}">Regresar</a>
+        <form method="post"
+              th:action="@{/guardarCliente}"
+              th:object="${cliente}">
+            <label form="nombre">Nombre:</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <br/>
+            <label form="apellido">Apelllidos:</label>
+            <input type="text" name="apellido" th:field="*{apellido}"/>
+            <br/>
+            <label form="correo">Correo:</label>
+            <input type="email" name="correo" th:field="*{correo}"/>
+            <br/>
+            <label form="telefono">Telefono:</label>
+            <input type="tel" name="telefonp" th:field="*{telefono}"/>
+            <br/>
+            <input type="sumit" name="guardar" value="Guardar"/>
+            
+            
+            
+            
+            
+        </form>
+    </body>
+</html>

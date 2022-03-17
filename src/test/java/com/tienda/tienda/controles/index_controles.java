@@ -6,6 +6,7 @@ import static java.lang.Math.log;
 import org.springframework.beans.factory.annotation.Autowired;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import secion.ClienteServise;
 
 @Controles
@@ -37,7 +38,7 @@ public class index_controles {
      return "modificarcliente";
      }
      
-     @Postmapping("/guardarCliente")
+     @PostMapping("/guardarCliente")
      public String guardarCliente(cliente cliente) {
      clienteServises.save(cliente);
      return "redirect:/";
