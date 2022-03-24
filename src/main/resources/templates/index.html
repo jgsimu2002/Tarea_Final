@@ -3,45 +3,41 @@
     <head>
         <title>Techshop</title>
         <meta charset="UTF-8">
-       
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <header th:replace="plantilla/plantilla :: header" />
-        <h2>gestion de clientes</h2>
-        <a th:href="@{/nuevo cliente}">Nuevo cliente</a>
-        <div th:if="{clientes != null and !clientes.empty}">
+        <div class="contenido">
+        <h2>Nuestros Articulos</h2>
+        
+        <div th:if="{articulos != null and !articulos.empty}">
         <table border="1">
             <thead>
                 <tr>
-                    <th>nombre</th>
-                    <th>apellido</th>
-                    <th>correo</th>
-                    <th>telefono</th>
+                    <th>Descipcion</th>
+                    <th>Precio</th>
+                    <th>Comprar</th>
+                    
                 </tr>
             </thead>
+            
             <tbody>
-                <tr th:text="cliente : ${cliente}">
-                    <td th:text="${cliente.nombre}"></td>
-                    <td th:text="${cliente.apellido}"></td>
-                    <td th:text="${cliente.correo}"></td>
-                    <td th:text="${cliente.telefono}"></td>
-                </tr>
                 
-                  <tr th:text="cliente : ${cliente}">
-                    <td th:text="${cliente.nombre}"></td>
-                    <td th:text="${cliente.apellido}"></td>
-                    <td th:text="${cliente.correo}"></td>
-                    <td th:text="${cliente.telefono}"></td>
-                    <td><a th:href="@{modificarCliente/} + ${cliente.idCliente}">Modificar</a></td>
-                    <td><a th:href="@{eliminarCliente/} + ${cliente.idCliente}">Eliminar</a></td>
+                
+                  <tr th:text="articulo : ${articulos}">
+                    <td th:text="${articulo.descripcion}"></td>
+                    <td th:text="${articulo.precio}"></td>
+                    <td th:text="$@{/carrito/agregar} + ${articulo.idArticulo}">Agregar:</td>
+                   
                 </tr>
             </tbody>
         </table>
+              </thead>
             
 </div>
         <div th:if="${clientes == null or cliente empty}">
         </div>
-  
+   </div>
          <footer th:replace="plantilla/plantilla :: footer" />
         
     </body>

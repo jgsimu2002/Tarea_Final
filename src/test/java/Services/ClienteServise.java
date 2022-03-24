@@ -1,5 +1,5 @@
 
-package secion;
+package Services;
 
 import com.tienda.tienda.model.cliente;
 import java.util.List;

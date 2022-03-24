@@ -1,0 +1,46 @@
+
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Techshop</title>
+        <meta charset="UTF-8">
+        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header th:replace="plantilla/plantilla :: header" />
+        <div class="contenido">
+        <h2>Listado de articulos</h2>
+        <a th:href="@{/articulo/nuevo}">Nuevo cliente</a>
+        <div th:if="{articulos!= null and !articulos.empty}">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    <th>Existencias</th>
+                    <th>activa</th>
+                    
+                </tr>
+          
+          
+                
+                
+                  <tr th:text="articulo : ${articuloa}">
+                    <td th:text="${articulo.descripcion}"></td>
+                    <td th:text="${#numbers.formatDecimal(articulo.precio,3,2)}" style="text-align: right"></td>
+                    <td th:text="${articulo.exixtencias}" style="text-align: center"></td>
+                    <td><input type="checkbox" name="activa" th:checked="${articulo.activo}" disabled="true"></td>
+                    <td th:href="@{/articulo/eliminar/ + ${articulo.idArticulo}">Eliminar</td>
+                    <td th:text="{@/articulo/modificar/ + ${articulo.idArticulo}">Modificar</td>
+                </tr>
+            </tbody>
+        </table>
+              </thead>
+            
+</div>
+        <div th:if="${articulos == null or articulos.empty}">
+        </div>
+   </div>
+         <footer th:replace="plantilla/plantilla :: footer" />
+        
+    </body>
+</html>

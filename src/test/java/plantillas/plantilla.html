@@ -6,11 +6,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <header th:fragment="header">
-            <h1>Shop</h1>
+        <header th:fragment="header"class="header">
+          
+        <nav class="nav">
+            <a th:href="{/}" class="logo nav-link">Techchop</a>
+            <ul class="nav-menu">
+            
+                <li class="nav-menu-item">
+                    <a class="nav-menu-item nav-link" th:href="@{/cliente/listado}">Clientes</a></li>
+               
+                 <li class="nav-menu-item">
+                    <a class="nav-menu-item nav-link" th:href="@{/categoria/listado}">Categoria</a></li>
+                 
+                <li class="nav-menu-item">
+                    <a class="nav-menu-item nav-link" th:href="@{/articulo/listado}">Articulo</a></li>
+               
+         
+          </ul>
+          </nav>
         </header>
         
-        <footer th:fragment="footer">
+        <footer th:fragment="footer" class="footer">
             <p>@COPY Derechos Reservados 2022</p>
         </footer>
         
