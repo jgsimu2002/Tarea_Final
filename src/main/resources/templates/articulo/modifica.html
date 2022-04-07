@@ -10,28 +10,42 @@
     <body>
         <header href:replace="layout/plantilla ::header"/>
         <div class="contenido">
+            <h2 th:text="articulo.dato">Dato Articulo</h2>
         <a th:href="@{/cliente/listado}">Regresar</a>
         <form method="post"
               th:action="@{/cliente/guardar}"
             th:object="${cliente}">
             
-            <label for="nombre">Nombre:</label>  
+            
+             <label for="categoria" th:text="#{articulo.categoria}">Categoria:</label>  
+             <select th:field="*{idCategoria}">
+                 <option th:each="categoria: ${categorias}"
+                         th:value="${categoria.idCategoria}"
+                         th:text="${categoria.descripcion}"/>
+                     
+                 
+                 
+             </select>
+            <br/>
+            
+            
+            <label for="nombre" th:text="#{articulo.nombre}">Nombre:</label>  
             <input type="text" name="nombre" th:field="*{nombre}"/>
             <br/>
             
-            <label for="apellido">apellidos:</label>  
+            <label for="apellido" th:text="#{articulo.apellidos}">apellidos:</label>  
             <input type="text" name="apellidos" th:field="*{apellidos}"/>
             <br/>
             
-            <label for="correo">correo:</label>  
+            <label for="correo" th:text="#{articulo.correo}">correo:</label>  
             <input type="email" name="correo" th:field="*{correo}"/>
             <br/>
             
-            <label for="telefono">telefono:</label>  
+            <label for="telefono" th:text="#{articulo.telefono}">telefono:</label>  
             <input type="tel" name="telefono" th:field="*{telefono}"/>
             <br/>
             
-             <label for="limite">Limite de credito</label>  
+             <label for="limite" th:text="#{articulo.limite}">Limite de credito</label>  
             <input type="number" name="limite" th:field="*{credito.limite}"/>
             <br/>
             </div>
