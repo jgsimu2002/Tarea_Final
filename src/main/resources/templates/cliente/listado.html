@@ -1,12 +1,14 @@
 
 <html xmlns:th="https://www.thymeleaf.org">
-    <head>
+     <head th:replace="plantilla/plantilla :: head">
         <title>Techshop</title>
-        <meta charset="UTF-8">
-        <link href="/css/menu.css" rel="stylesheet" type="text/css"/>
+    
     </head>
     <body>
         <header th:replace="plantilla/plantilla :: header" />
+       <section th:replace="cliente/fragmentosCliente :: agregarCliente"/>
+<section th:replace="cliente/fragmentosCliente :: listadoClientes"/>
+            
         <div class="contenido">
         <h2 th:text="#{cliente.titulo}">gestion de clientes</h2>
         <a th:href="@{/cliente/nuevo}" th:text="#{cliente.nuevo}">Nuevo cliente</a>
